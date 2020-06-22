@@ -1,0 +1,22 @@
+{
+  "name": "GTVFramework",
+  "version": "0.1.0",
+  "summary": "A short description of GTVFramework.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/lecuong.bka@gmail.com/GTVFramework",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "lecuong.bka@gmail.com": "cuonglv@gametv.com.vn"
+  },
+  "source": {
+    "git": "https://github.com/lecuong.bka@gmail.com/GTVFramework.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "GTVFramework/Classes/**/*"
+}

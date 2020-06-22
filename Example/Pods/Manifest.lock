@@ -1,0 +1,16 @@
+PODS:
+  - GTVFramework (0.1.0)
+
+DEPENDENCIES:
+  - GTVFramework (from `../`)
+
+EXTERNAL SOURCES:
+  GTVFramework:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  GTVFramework: 7cf5b6d24b73ddb4a1a1e4ee8e922f52e19ac18c
+
+PODFILE CHECKSUM: 9663d7240858b395b88b2bf3bab8fd14dd25fdf4
+
+COCOAPODS: 1.8.4

@@ -1,42 +1,26 @@
-#
-# Be sure to run `pod lib lint GTVFramework.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'GTVFramework'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of GTVFramework.'
+  s.summary          = 'GTVFramework!'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = "GTVFramework use for gtv's partner. support ios version > 10.0"
 
-  s.homepage         = 'https://github.com/lecuong.bka@gmail.com/GTVFramework'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/autm-syl/GTVFramework'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'lecuong.bka@gmail.com' => 'cuonglv@gametv.com.vn' }
-  s.source           = { :git => 'https://github.com/lecuong.bka@gmail.com/GTVFramework.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'autm-syl' => 'cuonglv@gametv.com.vn' }
+  s.source           = { :git => 'https://github.com/autm-syl/GTVFramework.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://gtv.com.vn/'
 
-  s.ios.deployment_target = '8.0'
+  
+  s.frameworks = 'UIKit', 'AudioToolbox', 'WebKit', 'GLKit', 'CoreMedia', 'StoreKit', 'SystemConfiguration', 'AVFoundation', 'CFNetwork', 'MapKit'
+  s.libraries = 'icucore', 'c++'
+  
+  s.requires_arc        = true
+  s.ios.deployment_target = '10.0'
+  s.platform            = :ios, '10.0'
+  
+  s.source              = { :http => "https://github.com/duplicater/MdcLib-Skyprepare/releases/download/#{s.version}/MdcLib.zip" }
 
   s.source_files = 'GTVFramework/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'GTVFramework' => ['GTVFramework/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
