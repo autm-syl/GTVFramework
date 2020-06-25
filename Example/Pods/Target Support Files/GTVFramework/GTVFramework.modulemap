@@ -1,6 +1,0 @@
-framework module GTVFramework {
-  umbrella header "GTVFramework-umbrella.h"
-
-  export *
-  module * { export * }
-}
