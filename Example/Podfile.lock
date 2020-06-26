@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
   - AppsFlyerFramework (5.3.0)
   - FBSDKCoreKit (7.0.1):
     - FBSDKCoreKit/Basics (= 7.0.1)
@@ -94,7 +109,8 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.6.0):
     - GoogleUtilities/Logger
-  - GTVFramework (0.1.0):
+  - GTVFramework (0.1.3):
+    - AFNetworking (~> 4.0)
     - AppsFlyerFramework (~> 5.3.0)
     - FBSDKCoreKit (~> 7.0.1)
     - FBSDKLoginKit (~> 7.0.1)
@@ -115,6 +131,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AFNetworking
     - AppsFlyerFramework
     - FBSDKCoreKit
     - FBSDKLoginKit
@@ -140,6 +157,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   AppsFlyerFramework: 122cc8b2de52f2b82ea739c2d9e57f919a9f5653
   FBSDKCoreKit: 9cc05bec0568a5955c82eb59ae95da0fe125b88d
   FBSDKLoginKit: ecc6fd43c81b60f5b5e9388d58f137aff4a5d00b
@@ -156,7 +174,7 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 9a8a16f79feffc7f42096743de2a7c4815e84020
   GoogleDataTransportCCTSupport: 489c1265d2c85b68187a83a911913d190012158d
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
-  GTVFramework: 3c6b1b16f89d2d7f856994f5ec8e5db268d06f9e
+  GTVFramework: 304efa495a40fc01d88f380f72f685ec45cc7239
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9

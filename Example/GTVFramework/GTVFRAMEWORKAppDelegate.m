@@ -7,13 +7,27 @@
 //
 
 #import "GTVFRAMEWORKAppDelegate.h"
+#import <GTVLib/GTVLib.h>
 
 @implementation GTVFRAMEWORKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[GTVManager sharedManager] ImplementWith:application didFinishLaunchingWithOptions:launchOptions useProductServer:YES];
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+//    return true;
+  bool shouldOpen = [[GTVManager sharedManager] gtvApplication:app openURL:url options:options];
+    return shouldOpen;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+
+    // Handle notify.
+    [[GTVManager sharedManager] handleNotificationsWithDeviceToken:deviceToken];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

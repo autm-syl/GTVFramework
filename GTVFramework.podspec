@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'GTVFramework'
-  s.version          = '0.1.1'
+  s.version          = '0.1.3'
   s.summary          = 'GTVFramework!'
   
   s.description      = "GTVFramework use for gtv's partner. support ios version > 10.0"

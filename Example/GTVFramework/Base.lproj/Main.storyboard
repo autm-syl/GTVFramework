@@ -1,31 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IF3-KT-C1N">
+    <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="wQg-tq-qST">
+        <scene sceneID="pn4-Ca-hsD">
             <objects>
-                <viewController id="whP-gf-Uak" customClass="GTVFRAMEWORKViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uEw-UM-LJ8"/>
-                        <viewControllerLayoutGuide type="bottom" id="Mvr-aV-6Um"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="Rdg-Js-Y19" customClass="GTVFRAMEWORKViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p2j-Xb-0WY">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BLj-ej-XBf">
+                                <rect key="frame" x="251" y="72.5" width="165" height="230"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpg-Za-g1k">
+                                        <rect key="frame" x="0.0" y="0.0" width="165" height="30"/>
+                                        <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="showLogin" destination="Rdg-Js-Y19" eventType="touchUpInside" id="atB-sU-LcW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgy-IP-5FM">
+                                        <rect key="frame" x="0.0" y="40" width="165" height="30"/>
+                                        <state key="normal" title="Logout"/>
+                                        <connections>
+                                            <action selector="logout" destination="Rdg-Js-Y19" eventType="touchUpInside" id="CJT-hs-iYc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5i-qe-bb0" userLabel="Payment">
+                                        <rect key="frame" x="0.0" y="80" width="165" height="30"/>
+                                        <state key="normal" title="Payment"/>
+                                        <connections>
+                                            <action selector="showPayment" destination="Rdg-Js-Y19" eventType="touchUpInside" id="ItV-fA-5Pe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7T-zX-5at" userLabel="Payment">
+                                        <rect key="frame" x="0.0" y="120" width="165" height="30"/>
+                                        <state key="normal" title="Payment with productID"/>
+                                        <connections>
+                                            <action selector="paymentWithProductID:" destination="Rdg-Js-Y19" eventType="touchUpInside" id="bjB-FE-5ga"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyr-Mw-dIg" userLabel="GetUserHash">
+                                        <rect key="frame" x="0.0" y="160" width="165" height="30"/>
+                                        <state key="normal" title="GetUserHash"/>
+                                        <connections>
+                                            <action selector="getUserHash:" destination="Rdg-Js-Y19" eventType="touchUpInside" id="EKi-eu-DjO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4L3-8o-PO2" userLabel="ShareFB">
+                                        <rect key="frame" x="0.0" y="200" width="165" height="30"/>
+                                        <state key="normal" title="Share Facebook"/>
+                                        <connections>
+                                            <action selector="shareFB:" destination="Rdg-Js-Y19" eventType="touchUpInside" id="bNh-wr-hcZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="BLj-ej-XBf" firstAttribute="centerX" secondItem="p2j-Xb-0WY" secondAttribute="centerX" id="j5S-lE-UFa"/>
+                            <constraint firstItem="BLj-ej-XBf" firstAttribute="centerY" secondItem="p2j-Xb-0WY" secondAttribute="centerY" id="rz2-K3-Bae"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7OH-O7-lom"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kK2-Z1-VyJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n60-1g-oIC" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2682.008995502249" y="-108"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZKk-SQ-GRy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IF3-KT-C1N" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CUS-wh-lWd">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Rdg-Js-Y19" kind="relationship" relationship="rootViewController" id="Wy9-hn-BQV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gGI-Sn-tMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1891.304347826087" y="-108"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="JZF-zt-hPb">
+            <objects>
+                <viewController storyboardIdentifier="GameViewController" id="Xqp-vM-Lr2" customClass="GameViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vss-Ys-H2u">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Cis-F1-bUc">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <state key="normal" title="Demo game scence">
+                                    <color key="titleColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Cis-F1-bUc" firstAttribute="centerY" secondItem="3pK-pM-AkW" secondAttribute="centerY" id="IPv-Fg-w8p"/>
+                            <constraint firstItem="Cis-F1-bUc" firstAttribute="width" secondItem="vss-Ys-H2u" secondAttribute="width" id="L0k-Ug-oio"/>
+                            <constraint firstItem="Cis-F1-bUc" firstAttribute="centerX" secondItem="3pK-pM-AkW" secondAttribute="centerX" id="Opi-dD-yLA"/>
+                            <constraint firstItem="Cis-F1-bUc" firstAttribute="height" secondItem="vss-Ys-H2u" secondAttribute="height" id="z7h-x5-dee"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3pK-pM-AkW"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f5h-LH-63t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="433"/>
+            <point key="canvasLocation" x="2121" y="746"/>
         </scene>
     </scenes>
 </document>

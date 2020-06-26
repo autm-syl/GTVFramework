@@ -22,7 +22,7 @@
 @property (weak, nonatomic, nullable) id <FirebaseServiceDelegate> delegate;
 + (nullable FirebaseService *)sharedManager;
 - (void)configure;
-- (void)configureAfterDelay:(int64_t)delay delegate:( id <FirebaseServiceDelegate>_Nullable)delegate;
+- (void)configureAfterDelay:(int64_t)delay withApplication:(UIApplication *)application delegate:( id <FirebaseServiceDelegate>_Nullable)delegate;
 - (nullable NSString *)getFCMToken;
 - (void)setAPNSToken:(NSData *_Nonnull)token;
 - (void)messagingDelegate:(nullable id <FirebaseServiceDelegate>)delegate;

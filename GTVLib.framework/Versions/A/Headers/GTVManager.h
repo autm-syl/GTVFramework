@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "FacebookService.h"
 #import "FirebaseService.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -25,11 +24,11 @@ typedef enum {
 typedef void (^GTVIAPCallback)(GTVIAPStatus status, NSString *message);
 typedef void (^GTVILogoutCallback)(BOOL isSuccess, NSString * _Nullable message);
 typedef void (^GTVILoginCallback)(BOOL isSuccess, NSString * _Nullable message, NSString * _Nullable userHash);
+typedef void (^FBShareCallback)(NSDictionary<NSString *,id> * _Nullable results, NSError * _Nullable error, BOOL cancel);
 
 @interface GTVManager : NSObject
 
 #pragma mark - Property
-@property (nonatomic, strong) FacebookService *fbService;
 @property (nonatomic, copy) NSString *URL_ID;
 @property (nonatomic, copy) NSString *URL_PAY;
 @property (nonatomic, strong) NSDictionary *installData;
@@ -72,6 +71,20 @@ typedef void (^GTVILoginCallback)(BOOL isSuccess, NSString * _Nullable message, 
 - (void)startIAPPaymentServerID:(NSString *)serverID roleID:(NSString *)roleID platform:(NSString *)platform levels:(NSString *)levels productID:(NSString*)productID gameOrderID:(NSString*)gameOrderID partner:(NSString*)partner callback:(GTVIAPCallback)callback;
 - (BOOL)isIAP:(int)level;
 
+
+/// help tracking by facebook and firebase
+/// @param application app
+/// @param url url
+/// @param options optioon
+- (BOOL)gtvApplication:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options;
+
+- (void)handleNotificationsWithDeviceToken:(NSData *)deviceToken;
+
+/// Share Facebook
+/// @param link url
+/// @param fromViewController !
+/// @param callback FBShareCallback
+- (void)shareLinkContent:(NSString*)link fromViewController:(UIViewController*)fromViewController callback:(FBShareCallback)callback;
 
 #pragma mark - Account
 
