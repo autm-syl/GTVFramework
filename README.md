@@ -1,9 +1,9 @@
 # GTVFramework
 
-[![CI Status](https://img.shields.io/travis/lecuong.bka@gmail.com/GTVFramework.svg?style=flat)](https://travis-ci.org/lecuong.bka@gmail.com/GTVFramework)
 [![Version](https://img.shields.io/cocoapods/v/GTVFramework.svg?style=flat)](https://cocoapods.org/pods/GTVFramework)
 [![License](https://img.shields.io/cocoapods/l/GTVFramework.svg?style=flat)](https://cocoapods.org/pods/GTVFramework)
 [![Platform](https://img.shields.io/cocoapods/p/GTVFramework.svg?style=flat)](https://cocoapods.org/pods/GTVFramework)
+[![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-green.svg?style=flat)](https://cocoapods.org)
 
 ## Example
 
@@ -113,6 +113,9 @@ share FB:
 ## Swift
 
 Even though `GTVFramework` is written in Objective-C, it can be used in Swift with no hassle. If you use [CocoaPods](http://cocoapods.org) add the following line to your [Podfile](http://guides.cocoapods.org/using/using-cocoapods.html):
+```ruby
+pod 'GTVFramework'
+```
 
 You need create a bridging-header file, [Here is tutorial](https://medium.com/@javedmultani16/adding-a-swift-bridging-header-5562f8855311)
 Then import GTVLib into this header file.
