@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'GTVFramework'
-  s.version          = '0.1.5'
+  s.version          = '1.0.0'
   s.summary          = 'GTVFramework!'
   
   s.description      = "GTVFramework use for gtv's partner. support ios version > 10.0"
@@ -16,7 +16,25 @@ Pod::Spec.new do |s|
   s.libraries = 'icucore', 'c++'
   
   
-  s.static_framework = true
+#  s.static_framework = true
+  
+
+  
+  s.requires_arc        = true
+  s.ios.deployment_target = '10.0'
+  s.platform            = :ios, '10.0'
+  s.swift_version = '5.0'
+  
+  s.source              = { :http => "https://github.com/autm-syl/GTVFramework/releases/download/#{s.version}/GTV.zip" }
+
+  s.preserve_paths      = 'GTVLib.framework'
+  s.public_header_files = 'GTVLib.framework/Versions/A/Headers/*'
+  s.source_files        = 'GTVLib.framework/Versions/A/Headers/*'
+#  s.source_files = 'GTVFramework/Classes/**/*'
+  s.resource    = 'GTVLib.Bundle'
+  s.vendored_frameworks = 'GTVLib.framework'
+  
+  
   s.dependency 'AppsFlyerFramework', '~>5.3.0'
   s.dependency 'Firebase/Analytics'
   s.dependency 'Firebase/Messaging'
@@ -25,18 +43,6 @@ Pod::Spec.new do |s|
   s.dependency 'FBSDKLoginKit', '~>7.0.1'
   s.dependency 'FBSDKShareKit', '~>7.0.1'
   s.dependency 'AFNetworking', '~> 4.0'
-
   
-  s.requires_arc        = true
-  s.ios.deployment_target = '10.0'
-  s.platform            = :ios, '10.0'
   
-  s.source              = { :http => "https://github.com/autm-syl/GTVFramework/releases/download/#{s.version}/GTV.zip" }
-
-  s.preserve_paths      = 'GTVLib.framework'
-  s.public_header_files = 'GTVLib.framework/Versions/A/Headers/*'
-  s.source_files        = ['GTVLib.framework/Versions/A/Headers/*', 'GTVFramework/Classes/**/*']
-#  s.source_files = 'GTVFramework/Classes/**/*'
-  s.resource    = 'GTVLib.Bundle'
-  s.vendored_frameworks = 'GTVLib.framework'
 end

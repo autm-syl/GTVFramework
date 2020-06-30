@@ -109,7 +109,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.6.0):
     - GoogleUtilities/Logger
-  - GTVFramework (0.1.4):
+  - GTVFramework (1.0.0):
     - AFNetworking (~> 4.0)
     - AppsFlyerFramework (~> 5.3.0)
     - FBSDKCoreKit (~> 7.0.1)
@@ -174,7 +174,7 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 9a8a16f79feffc7f42096743de2a7c4815e84020
   GoogleDataTransportCCTSupport: 489c1265d2c85b68187a83a911913d190012158d
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
-  GTVFramework: a67b21865a52ea27387e963f06cfbb59deac287c
+  GTVFramework: 1273894c91d26d87616a6a6030a389a04a6d56ad
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9

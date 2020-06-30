@@ -1,6 +1,6 @@
 {
   "name": "GTVFramework",
-  "version": "0.1.4",
+  "version": "1.0.0",
   "summary": "GTVFramework!",
   "description": "GTVFramework use for gtv's partner. support ios version > 10.0",
   "homepage": "https://github.com/autm-syl/GTVFramework",
@@ -12,7 +12,7 @@
     "autm-syl": "cuonglv@gametv.com.vn"
   },
   "source": {
-    "http": "https://github.com/autm-syl/GTVFramework/releases/download/0.1.4/GTV.zip"
+    "http": "https://github.com/autm-syl/GTVFramework/releases/download/1.0.0/GTV.zip"
   },
   "social_media_url": "https://gtv.com.vn/",
   "frameworks": [
@@ -31,7 +31,16 @@
     "icucore",
     "c++"
   ],
-  "static_framework": true,
+  "requires_arc": true,
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "5.0",
+  "preserve_paths": "GTVLib.framework",
+  "public_header_files": "GTVLib.framework/Versions/A/Headers/*",
+  "source_files": "GTVLib.framework/Versions/A/Headers/*",
+  "resources": "GTVLib.Bundle",
+  "vendored_frameworks": "GTVLib.framework",
   "dependencies": {
     "AppsFlyerFramework": [
       "~>5.3.0"
@@ -58,16 +67,5 @@
       "~> 4.0"
     ]
   },
-  "requires_arc": true,
-  "platforms": {
-    "ios": "10.0"
-  },
-  "preserve_paths": "GTVLib.framework",
-  "public_header_files": "GTVLib.framework/Versions/A/Headers/*",
-  "source_files": [
-    "GTVLib.framework/Versions/A/Headers/*",
-    "GTVFramework/Classes/**/*"
-  ],
-  "resources": "GTVLib.Bundle",
-  "vendored_frameworks": "GTVLib.framework"
+  "swift_version": "5.0"
 }
