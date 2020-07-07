@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>GTVConfig</key>
+	<dict>
+		<key>APP_CODE</key>
+		<string>TAMQUOC</string>
+		<key>PARTNER_ID</key>
+		<string>10</string>
+		<key>appleAppID</key>
+		<string>1501684146</string>
+		<key>appsFlyerDevKey</key>
+		<string>eCtr8zCKpS65ri8yUjGCGf</string>
+	</dict>
+</dict>
+</plist>

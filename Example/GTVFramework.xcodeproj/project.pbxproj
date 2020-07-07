@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D4C87A724A5F717007A0234 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4C87A524A5F717007A0234 /* GameViewController.m */; };
 		3D4C87AB24A5F8FE007A0234 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4C87AA24A5F8FE007A0234 /* GoogleService-Info.plist */; };
+		3D52707624B420A70052C9DA /* GTVService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D52707524B420A70052C9DA /* GTVService-Info.plist */; };
 		3D81B48A24A197D900595724 /* Fix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D81B48924A197D900595724 /* Fix.swift */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -47,6 +48,7 @@
 		3D4C87A624A5F717007A0234 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		3D4C87A824A5F801007A0234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D4C87AA24A5F8FE007A0234 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3D52707524B420A70052C9DA /* GTVService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GTVService-Info.plist"; sourceTree = "<group>"; };
 		3D81B48824A197D900595724 /* GTVFramework_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GTVFramework_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		3D81B48924A197D900595724 /* Fix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fix.swift; sourceTree = "<group>"; };
 		3DBCD56624A9A0E1007AE161 /* GTVFramework_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GTVFramework_Example.entitlements; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		6003F593195388D20070C39A /* Example for GTVFramework */ = {
 			isa = PBXGroup;
 			children = (
+				3D52707524B420A70052C9DA /* GTVService-Info.plist */,
 				3D4C87AA24A5F8FE007A0234 /* GoogleService-Info.plist */,
 				3D4C87A624A5F717007A0234 /* GameViewController.h */,
 				3D4C87A524A5F717007A0234 /* GameViewController.m */,
@@ -301,6 +304,7 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				3D52707624B420A70052C9DA /* GTVService-Info.plist in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				3D4C87AB24A5F8FE007A0234 /* GoogleService-Info.plist in Resources */,
