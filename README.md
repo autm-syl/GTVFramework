@@ -5,6 +5,9 @@
 [![Platform](https://img.shields.io/cocoapods/p/GTVFramework.svg?style=flat)](https://cocoapods.org/pods/GTVFramework)
 [![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-green.svg?style=flat)](https://cocoapods.org)
 
+## Doc
+Full document you can see [here](https://gtv-ios-sdk-documentation.readthedocs.io/en/latest/setup_sdk.html)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
