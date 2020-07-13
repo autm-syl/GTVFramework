@@ -31,17 +31,17 @@
 }
 
 - (IBAction)showLogin {
-    [[GTVManager sharedManager] showLogin:^(BOOL isSuccess, NSString * _Nullable message, NSString * _Nullable userHash) {
+    [[GTVManager sharedManager] showLogin:^(BOOL isSuccess, NSString * _Nullable message, NSString * _Nullable uuid, NSString * _Nullable username) {
         //
-        if (isSuccess && userHash != nil) {
-            NSLog(@"gtvDidReceivedUserHash: %@", userHash);
-               dispatch_async(dispatch_get_main_queue(), ^{
-                   GameViewController *gameVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"GameViewController"];
-                   [self.navigationController pushViewController:gameVC animated:YES];
-               });
+        if (isSuccess && uuid != nil) {
+            NSLog(@"gtv login success: %@", uuid);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                GameViewController *gameVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"GameViewController"];
+                [self.navigationController pushViewController:gameVC animated:YES];
+            });
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
-              // offending code goes in here
+                // offending code goes in here
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"Login error : %@", message] preferredStyle:UIAlertControllerStyleAlert];
                 [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
                 [self presentViewController:alert animated:YES completion:nil];
@@ -49,6 +49,7 @@
             
         }
     }];
+   
 }
 
 - (IBAction)logout {
@@ -61,10 +62,9 @@
         }
     }];
 }
-
-- (IBAction)getUserHash:(id)sender {
-    NSString *userHash = [[GTVManager sharedManager] getUserHash];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"user_hash = %@", userHash] preferredStyle:UIAlertControllerStyleAlert];
+- (IBAction)getUserInformation:(id)sender {
+    NSString *userinfor = [NSString stringWithFormat:@"uuid:%@\n----username:%@\nPayment:%@\nAcount:%@",[[GTVManager sharedManager] getUUID], [[GTVManager sharedManager] getUserName], [[GTVManager sharedManager] getPaymentToken], [[GTVManager sharedManager] getAccountToken]];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"Information\n%@", userinfor] preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
     [self presentViewController:alert animated:YES completion:nil];
 }
@@ -89,24 +89,28 @@
         [self presentViewController:alert animated:YES completion:nil];
     }
 }
-
-- (IBAction)paymentWithProductID:(id)sender {
-    if ([[GTVManager sharedManager] getUserHash]) {
-        NSArray *arrs = [NSArray arrayWithObjects:@"com.gtv.thiensu.99", @"com.gtv.thiensu.499",  @"com.gtv.thiensu.999",  @"com.gtv.thiensu.1499",  @"com.gtv.thiensu.2499",  @"com.gtv.thiensu.4999",  @"com.gtv.thiensu.9999", nil];
-        uint32_t rnd = arc4random_uniform((uint32_t)[arrs count]);
-        NSString *productID = [arrs objectAtIndex:rnd];
-        [[GTVManager sharedManager] startIAPPaymentServerID:@"100" roleID:@"431067320809" platform:@"9005" levels:@"370" productID:productID gameOrderID:@"201910161073899979" partner:@"2" callback:^(GTVIAPStatus status, NSString * _Nonnull message) {
-            NSLog(@"\nStatus: %d \n Message: %@", status, message);
-            if (status != GTVPurchasing) {
-                // Do anything
-            }
-        }];
-    } else {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Login required" preferredStyle:UIAlertControllerStyleAlert];
-        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-        [self presentViewController:alert animated:YES completion:nil];
-    }
+- (IBAction)refreshToken:(id)sender {
+    [[GTVManager sharedManager] refreshTokenPaymentNow:^(BOOL isSuccess, NSString * _Nullable message) {
+        //
+        if (isSuccess) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }];
+    
+    
+    
+    [[GTVManager sharedManager] refreshTokenAccountNow:^(BOOL isSuccess, NSString * _Nullable message) {
+        //
+        if (isSuccess) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }];
 }
+
 - (IBAction)shareFB:(id)sender {
     [[GTVManager sharedManager] shareLinkContent:@"https://gtv.com.vn/" fromViewController:self callback:^(NSDictionary<NSString *,id> * _Nullable results, NSError * _Nullable error, BOOL cancel) {
         //

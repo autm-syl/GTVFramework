@@ -53,18 +53,18 @@ In AppDelegate.m
 ### API
 Login and logout:
 ```objective-c
-[[GTVManager sharedManager] showLogin:^(BOOL isSuccess, NSString * _Nullable message, NSString * _Nullable userHash) {
+[[GTVManager sharedManager] showLogin:^(BOOL isSuccess, NSString * _Nullable message, NSString * _Nullable uuid, NSString * _Nullable username) {
     //
-    if (isSuccess && userHash != nil) {
-        NSLog(@"gtvDidReceivedUserHash: %@", userHash);
+    if (isSuccess && uuid != nil) {
+        NSLog(@"gtv login success: %@", uuid);
         dispatch_async(dispatch_get_main_queue(), ^{
             GameViewController *gameVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"GameViewController"];
             [self.navigationController pushViewController:gameVC animated:YES];
         });
     } else {
         dispatch_async(dispatch_get_main_queue(), ^{
-        // offending code goes in here
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"Login error : %@", message] preferredStyle:UIAlertControllerStyleAlert];
+            // offending code goes in here
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"Login error : %@", message] preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
             [self presentViewController:alert animated:YES completion:nil];
         });
@@ -84,25 +84,55 @@ Login and logout:
 
 Payment:
 ```objective-c
-if ([[GTVManager sharedManager] getUserHash]) {
-     [[GTVManager sharedManager] showPaymentWithOrderID:@"orderID" serverID:@"1" serverName:@"serverName" roleID:@"49" roleName:@"roleName" userID:@"userID" channel:@"channel" levels:@"1" callback:^(GTVIAPStatus status, NSString * _Nonnull message) {
-         switch (status) {
-             case GTVRequestError:
-                 //
-                 break;
-             default:
-                 break;
-         }
-         NSLog(@"Payment: %u, mess: %@", status, message);
-     }];
- } else {
-     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Login required" preferredStyle:UIAlertControllerStyleAlert];
-     [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-     [self presentViewController:alert animated:YES completion:nil];
- }
+if ([[GTVManager sharedManager] getPaymentToken]) {
+    [[GTVManager sharedManager] showPaymentWithOrderID:@"orderID" serverID:@"1" serverName:@"serverName" roleID:@"49" roleName:@"roleName" userID:@"userID" channel:@"channel" levels:@"1" callback:^(GTVIAPStatus status, NSString * _Nonnull message) {
+        //
+        switch (status) {
+            case GTVRequestError:
+                //
+                break;
+                
+            default:
+                break;
+        }
+        NSLog(@"Payment out: %u, mess: %@", status, message);
+    }];
+} else {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Login required" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+```
+Get user Information:
+```objective-c
+NSString *uuid = [[GTVManager sharedManager] getUUID];
+NSString *username = [[GTVManager sharedManager] getUserName];
+NSString *paymentToken = [[GTVManager sharedManager] getPaymentToken];
+NSString *accountToken = [[GTVManager sharedManager] getAccountToken]];
 ```
 
-share FB:
+Refresh token acount and payment:
+```objective-c
+[[GTVManager sharedManager] refreshTokenPaymentNow:^(BOOL isSuccess, NSString * _Nullable message) {
+    //
+    if (isSuccess) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}];
+
+[[GTVManager sharedManager] refreshTokenAccountNow:^(BOOL isSuccess, NSString * _Nullable message) {
+    //
+    if (isSuccess) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}];
+```
+
+Share FB:
 ```objective-c
 [[GTVManager sharedManager] shareLinkContent:@"https://gtv.com.vn/" fromViewController:self callback:^(NSDictionary<NSString *,id> * _Nullable results, NSError * _Nullable error, BOOL cancel) {
    NSLog(@"\nResults: %@ \n Error: %@ \n Cancel: %d", results, error, cancel);
@@ -152,13 +182,32 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 
 Login and logout
 ```swift
-GTVManager.shared().showLogin { (isSuccess, message, userHash) in
+GTVManager.shared().showLogin { (isSuccess, message, uuid, username) in
     //
 }
 ```
 
 ```swift
 GTVManager.shared().logout { (isSuccess, message) in
+    //
+}
+```
+
+Get user Information:
+```swift
+let uuid = GTVManager.shared().getUUID();
+let username = GTVManager.shared().getUserName();
+let paymentToken = GTVManager.shared().getPaymentToken();
+let accountToken = GTVManager.shared().getAccountToken();
+```
+
+Refresh token acount and payment:
+```swift
+GTVManager.shared().refreshTokenPaymentNow { (isSuccess, message) in
+    //
+}
+
+GTVManager.shared().refreshTokenAccountNow { (isSuccess, message) in
     //
 }
 ```

@@ -17,45 +17,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BLj-ej-XBf">
-                                <rect key="frame" x="251" y="72.5" width="165" height="230"/>
+                                <rect key="frame" x="278" y="72.5" width="111" height="230"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpg-Za-g1k">
-                                        <rect key="frame" x="0.0" y="0.0" width="165" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="111" height="30"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
                                             <action selector="showLogin" destination="Rdg-Js-Y19" eventType="touchUpInside" id="atB-sU-LcW"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgy-IP-5FM">
-                                        <rect key="frame" x="0.0" y="40" width="165" height="30"/>
+                                        <rect key="frame" x="0.0" y="40" width="111" height="30"/>
                                         <state key="normal" title="Logout"/>
                                         <connections>
                                             <action selector="logout" destination="Rdg-Js-Y19" eventType="touchUpInside" id="CJT-hs-iYc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5i-qe-bb0" userLabel="Payment">
-                                        <rect key="frame" x="0.0" y="80" width="165" height="30"/>
+                                        <rect key="frame" x="0.0" y="80" width="111" height="30"/>
                                         <state key="normal" title="Payment"/>
                                         <connections>
                                             <action selector="showPayment" destination="Rdg-Js-Y19" eventType="touchUpInside" id="ItV-fA-5Pe"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7T-zX-5at" userLabel="Payment">
-                                        <rect key="frame" x="0.0" y="120" width="165" height="30"/>
-                                        <state key="normal" title="Payment with productID"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7T-zX-5at" userLabel="refresh token">
+                                        <rect key="frame" x="0.0" y="120" width="111" height="30"/>
+                                        <state key="normal" title="RefreshToken"/>
                                         <connections>
-                                            <action selector="paymentWithProductID:" destination="Rdg-Js-Y19" eventType="touchUpInside" id="bjB-FE-5ga"/>
+                                            <action selector="refreshToken:" destination="Rdg-Js-Y19" eventType="touchUpInside" id="gM1-Oy-Nam"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyr-Mw-dIg" userLabel="GetUserHash">
-                                        <rect key="frame" x="0.0" y="160" width="165" height="30"/>
-                                        <state key="normal" title="GetUserHash"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyr-Mw-dIg" userLabel="getuser infomation">
+                                        <rect key="frame" x="0.0" y="160" width="111" height="30"/>
+                                        <state key="normal" title="UserInfomation"/>
                                         <connections>
-                                            <action selector="getUserHash:" destination="Rdg-Js-Y19" eventType="touchUpInside" id="EKi-eu-DjO"/>
+                                            <action selector="getUserInformation:" destination="Rdg-Js-Y19" eventType="touchUpInside" id="grp-9x-YZ9"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4L3-8o-PO2" userLabel="ShareFB">
-                                        <rect key="frame" x="0.0" y="200" width="165" height="30"/>
+                                        <rect key="frame" x="0.0" y="200" width="111" height="30"/>
                                         <state key="normal" title="Share Facebook"/>
                                         <connections>
                                             <action selector="shareFB:" destination="Rdg-Js-Y19" eventType="touchUpInside" id="bNh-wr-hcZ"/>

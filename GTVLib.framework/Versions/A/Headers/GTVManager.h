@@ -23,16 +23,22 @@ typedef enum {
 
 typedef void (^GTVIAPCallback)(GTVIAPStatus status, NSString *message);
 typedef void (^GTVILogoutCallback)(BOOL isSuccess, NSString * _Nullable message);
-typedef void (^GTVILoginCallback)(BOOL isSuccess, NSString * _Nullable message, NSString * _Nullable userHash);
+typedef void (^GTVILoginCallback)(BOOL isSuccess, NSString * _Nullable message, NSString * _Nullable uuid, NSString * _Nullable username);
 typedef void (^FBShareCallback)(NSDictionary<NSString *,id> * _Nullable results, NSError * _Nullable error, BOOL cancel);
+
+typedef void (^RefreshTokenCallback)(BOOL isSuccess, NSString * _Nullable message);
 
 @interface GTVManager : NSObject
 
-#pragma mark - Property
-@property (nonatomic, copy) NSString *URL_ID;
-@property (nonatomic, copy) NSString *URL_PAY;
-@property (nonatomic, strong) NSDictionary *installData;
 
+/// URL_PAY
+@property (nonatomic, copy) NSString *URL_PAY;
+
+/// URL_ID
+@property (nonatomic, copy) NSString *URL_ID;
+
+/// URL_API
+@property (nonatomic, copy) NSString *URL_API;
 
 #pragma mark - Implement
 
@@ -88,15 +94,22 @@ typedef void (^FBShareCallback)(NSDictionary<NSString *,id> * _Nullable results,
 
 #pragma mark - Account
 
-/// GTV Login form
+/// Call login by GTV
+/// @param callback call back help you know it done, maybe success or error
 - (void)showLogin:(GTVILoginCallback)callback;
 
-/// GTV Logout
+/// Call logout by GTV
+/// @param callback call back help you know it done. often successful
 - (void)logout: (GTVILogoutCallback)callback;
 
-
 /// UserHash
-- (nullable NSString *)getUserHash;
+- (nullable NSString *)getUserHash __attribute__((deprecated("function has been deprecated from version 2.0.2, please use UUID and token instead")));
+
+/// uuid gen by GTV. You must to login first, if not this uuid maybe nil.
+- (nullable NSString *)getUUID;
+
+/// User name, who loggin GTV.  if nobody login, this username maybe nil.
+- (nullable NSString *)getUserName;
 
 #pragma mark - Tracking
 
@@ -106,8 +119,36 @@ typedef void (^FBShareCallback)(NSDictionary<NSString *,id> * _Nullable results,
 - (void)trackingWithEvent:(NSString *)eventName value:(NSDictionary  * _Nullable )value;
 
 #pragma mark - Support method
+
+/// This token for user-related APIs. You must to login first, if not this token maybe nil. in the case this token is nil, you need to call refresh it by use below method.
+- (nullable NSString *)getAccountToken;
+
+/// This token for payment-related APIs. You must to login first, if not this token maybe nil. in the case this token is nil, you need to call refresh it by use below method. like as account token
+- (nullable NSString *)getPaymentToken;
+
+
+/// Refresh to get new token for account-related
+///  This framework do not automatic check token was invalid or not. This way to save resources
+///  so you need to refresh manually
+/// @param callback call back help you know it done, maybe success or error.
+- (void)refreshTokenAccountNow:(RefreshTokenCallback)callback;
+
+/// Refresh to get new token payment-related
+///  This framework do not automatic check token was invalid or not. This way to save resources
+///  so you need to refresh manually
+/// @param callback call back help you know it done, maybe success or error.
+- (void)refreshTokenPaymentNow:(RefreshTokenCallback)callback;
+
+
+/// My web form is show when login or do something related to the payment. It is automic, show or hidden.
+/// but for some reason it was not closed, this method to help close it manully.
 - (void)hideWebview;
-- (void)postFcmToken:(NSString *)fcmToken;
+
+
+/// Post custom tracking
+/// @param action action name
+/// @param uid uid is a value for define user unique. can use uuid value.
+/// @param revenue value to track.
 - (void)postTrackingWithAction:(NSString *)action uid:(NSString *)uid revenue:(long)revenue;
 
 @end
